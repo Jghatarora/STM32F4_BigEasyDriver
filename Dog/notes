@@ -1,0 +1,18 @@
+to initialize GPIO using HAL
+
+first create initialization struct eg.
+GPIO_InitTypeDef GPIO_InitStruct;
+
+Ensure the appropriate clock is enabled
+__HAL_RCC_GPIOx_CLK_ENABLE(); where x is letter of GPIO register
+
+set initialization parameters
+GPIO_InitStruct.Pin = GPIO_PIN_x; x is pin number
+
+GPIO_InitStruct.Mode = eg. GPIO_MODE_OUTPUT_PP for push pull output
+
+
+GPIO_InitStruct.Pull = GPIO_PULLUP, GPIO_PULLDOWN, GPIO_NOPULL;
+
+initialize GPIO
+HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
